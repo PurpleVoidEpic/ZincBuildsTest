@@ -2,23 +2,25 @@ name: Build UWP C# App
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: windows-latest
     
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
       
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v1.0.2
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.0.2
       
-    - name: Restore NuGet packages
-      run: nuget restore ZincBuildsTest\ZincBrowser.sln
+      - name: Restore NuGet packages
+        run: nuget restore ZincBrowser.sln
       
-    - name: Build UWP project
-      run: msbuild /p:Configuration=Release /p:Platform="x64" ZincBuildsTest\ZincBrowser\ZincBrowser.csproj
+      - name: Build UWP project
+        run: msbuild /p:Configuration=Release /p:Platform="x64" ZincBrowser\ZincBrowser.csproj
