@@ -20,7 +20,7 @@ jobs:
         uses: microsoft/setup-msbuild@v1.0.2
       
       - name: Restore NuGet packages
-        run: nuget restore ZincBrowser.sln
+        run: nuget restore **/*.sln  # Use wildcard to find any .sln file in any directory
       
       - name: Build UWP project
-        run: msbuild /p:Configuration=Release /p:Platform="x64" ZincBrowser/ZincBrowser.csproj
+        run: msbuild /p:Configuration=Release /p:Platform="x64" **/*.csproj  # Use wildcard to find any .csproj file in any directory
