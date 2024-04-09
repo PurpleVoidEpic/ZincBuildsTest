@@ -23,4 +23,4 @@ jobs:
         run: nuget restore ZincBrowser.sln
       
       - name: Build UWP project
-        run: msbuild /p:Configuration=Release /p:Platform="x64" ZincBrowser\ZincBrowser.csproj
+        run: msbuild /p:Configuration=Release /p:Platform="x64" ZincBrowser/ZincBrowser.csproj
