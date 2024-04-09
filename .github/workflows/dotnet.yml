@@ -1,6 +1,3 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
 name: Build UWP C# App
 
 on:
@@ -8,7 +5,6 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
 
 jobs:
   build:
@@ -22,7 +18,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
       
     - name: Restore NuGet packages
-      run: nuget restore ZincBrowser.sln
+      run: nuget restore Solution_Path\ZincBrowser.sln
       
     - name: Build UWP project
-      run: msbuild /p:Configuration=Release /p:Platform="x64" ZincBrowser\ZincBrowser.csproj
+      run: msbuild /p:Configuration=Release /p:Platform="x64" ZincBuildsTest\ZincBrowser\ZincBrowser.csproj
